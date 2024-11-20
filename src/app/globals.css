@@ -2,20 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    120deg,
+    #0f172a,
+    /* Koyu lacivert */ #1e293b,
+    /* Koyu mor */ #1f1f38
+  );
+  background-size: 300% 300%; /* Gradient animasyonu için */
+  animation: gradient-move 10s ease infinite; /* Hareketli efekt */
+  overflow: hidden;
+  color: #e5e5e5; /* Daha açık beyazımsı yazı rengi */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Gradient animasyonu */
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.primary-btn,
+.secondary-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(90deg, #703dab, #3b3276);
+  color: white;
+  box-shadow: 0 5px 20px rgba(59, 50, 118, 0.5); /* Koyu mor gölge */
+}
+
+.primary-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(59, 50, 118, 0.8); /* Daha yoğun gölge */
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #e5e5e5;
+  border: 2px solid #ffffff40; /* Hafif yarı saydam sınır */
+}
+
+.secondary-btn:hover {
+  color: white;
+  border-color: white;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .grid-overlay {
+    display: none;
+  }
 }
