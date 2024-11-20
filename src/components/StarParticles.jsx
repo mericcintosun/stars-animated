@@ -52,7 +52,7 @@ const StarParticles = () => {
     },
     particles: {
       number: {
-        value: 160, // Parçacık sayısı
+        value: 400, // Parçacık sayısı
         density: {
           enable: true,
           width: 1920, // Yoğunluk genişliği
